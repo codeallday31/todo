@@ -1,0 +1,21 @@
+<%= form_with model: list, local: true, class:'form-inline pt-2 ml-auto my-2 my-lg-0'  do |form| %>
+  <% if list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+      <% list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :description, class:'form-control mr-sm-2', placeholder:'Input To do', 'aria-label':'description' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Add List', class:'btn btn-outline-success my-2 my-sm-0'%>
+  </div>
+<% end %>
